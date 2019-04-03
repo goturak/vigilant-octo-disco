@@ -47,16 +47,6 @@ public class StatusFrame extends Frame implements Observer {
     }
 
     private void selectColor(JLabel label, Client client){
-        switch (client.getStatus()){
-            case SILVER:
-                label.setForeground(Color.GRAY);
-                break;
-            case GOLD:
-                label.setForeground(Color.ORANGE);
-                break;
-            case PLATINIUM:
-                label.setForeground(Color.CYAN);
-                break;
-        }
+                label.setForeground(client.getStatus().getColor());
     }
 }

@@ -1,7 +1,9 @@
-public class PlatinumStatus extends State {
+import java.awt.*;
+
+public class PlatinumStatus extends Status {
 
     boolean locked;
-    PlatinumStatus(State oldStatus){
+    PlatinumStatus(Status oldStatus){
         super(oldStatus);
         locked=false;
         statusChangeCheck();
@@ -19,5 +21,15 @@ public class PlatinumStatus extends State {
         if(money>=100000){
             locked=true;
         }
+    }
+
+    @Override
+    Color getColor() {
+        return Color.CYAN;
+    }
+
+    @Override
+    public String toString() {
+        return "PLATINUM";
     }
 }

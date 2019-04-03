@@ -1,7 +1,9 @@
-public class GoldStatus extends State {
+import java.awt.*;
+
+public class GoldStatus extends Status {
 
 
-    GoldStatus(State oldStatus){
+    GoldStatus(Status oldStatus){
         super(oldStatus);
         milesRatio=0.5f;
     }
@@ -15,5 +17,15 @@ public class GoldStatus extends State {
         }else if(miles>=10000){
             client.setStatus(new PlatinumStatus(this));
         }
+    }
+
+    @Override
+    Color getColor() {
+        return Color.ORANGE;
+    }
+
+    @Override
+    public String toString() {
+        return "GOLD";
     }
 }

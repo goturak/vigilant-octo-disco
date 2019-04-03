@@ -1,9 +1,13 @@
-public class SilverStatus extends State {
+import java.awt.*;
+
+public class SilverStatus extends Status {
     SilverStatus(Client client){
         super(client);
         milesRatio=0.1f;
+        money=0;
+        miles=0;
     }
-    SilverStatus(State oldStatus){
+    SilverStatus(Status oldStatus){
         super(oldStatus);
         milesRatio=0.1f;
     }
@@ -15,5 +19,15 @@ public class SilverStatus extends State {
         if(miles>=1000){
             client.setStatus(new GoldStatus(this));
         }
+    }
+
+    @Override
+    Color getColor() {
+        return Color.GRAY;
+    }
+
+    @Override
+    public String toString() {
+        return "SILVER";
     }
 }
