@@ -1,7 +1,14 @@
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * @author Guillaume Vetter & Luca Reis de Carvalho
+ * Class representing a client details frame.
+ */
 public class ClientDetailsFrame extends Frame implements Observer {
+    /**
+     * Arguments of the frame, the client, the panel and the different labels
+     */
     private Client client;
     private JPanel panel;
     private JLabel lastName;
@@ -11,10 +18,19 @@ public class ClientDetailsFrame extends Frame implements Observer {
     private JLabel status;
     private JLabel lastAction;
 
+    /**
+     * Constructor of the frame that takes only a client and set the bounds to the default value.
+     * @param client the client we want to display in the frame
+     */
     public ClientDetailsFrame(Client client){
         this(client,  new Rectangle(0,0, 700,140));
     }
 
+    /**
+     * Constructor of the client details that takes dimension in addition to the client.
+     * @param client the client we want to display
+     * @param bound the bounds of the frame.
+     */
     public ClientDetailsFrame(Client client, Rectangle bound){
         super();
 
@@ -51,6 +67,10 @@ public class ClientDetailsFrame extends Frame implements Observer {
         getFrame().setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
+    /**
+     * Method used to update the details of the frame.
+     * @param observable the observable that has changed.
+     */
     @Override
     public void update(Observable observable) {
         credits.setText("Credits: " + client.getMoney());

@@ -1,5 +1,9 @@
 import java.util.LinkedList;
 
+/**
+ * @author Guillaume Vetter & Luca Reis de Carvalho
+ * Main class that just create clients and flights and add them to a Client manager frame.
+ */
 public class Application {
 
     public static void main(String[] args){
