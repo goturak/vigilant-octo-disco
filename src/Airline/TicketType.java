@@ -1,3 +1,5 @@
+package Airline;
+
 public enum TicketType {
     ECONOMY("Economy", 1, 1, 0.1),
     BUSINESS("Business", 2, 5, 0.5),

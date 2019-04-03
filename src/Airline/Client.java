@@ -1,3 +1,9 @@
+package Airline;
+
+import CustomObserver.Observable;
+import State.Silver;
+import State.Status;
+
 /**
  * @author Guillaume Vetter & Luca Reis de Carvalho
  * Class representing a client that extends observable and implements comparable.
@@ -86,7 +92,7 @@ public class Client extends Observable implements Comparable{
      * @param newStatus the new status we want to give to our client
      */
     public void setStatus(Status newStatus){
-        this.status =newStatus;
+        this.status = newStatus;
     }
 
     /**

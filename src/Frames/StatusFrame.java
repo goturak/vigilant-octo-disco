@@ -1,8 +1,17 @@
+package Frames;
+
+import Airline.Client;
+import CustomObserver.Observable;
+import CustomObserver.Observer;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
+
 
 /**
  * @author Guillaume Vetter & Luca Reis de Carvalho
@@ -27,6 +36,17 @@ public class StatusFrame extends Frame implements Observer {
             c.addObserver(this);
         }
         panel.setPreferredSize(new Dimension(200,200));
+
+        WindowAdapter closeListener = new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent windowEvent) {
+                for(Client c : clients) {
+                    c.removeObserver(StatusFrame.this);
+                }
+            }
+        };
+        getFrame().addWindowListener(closeListener);
+
         getFrame().setContentPane(panel);
         getFrame().setTitle("Statuses");
         getFrame().setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));

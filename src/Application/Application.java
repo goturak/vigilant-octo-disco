@@ -1,8 +1,14 @@
+package Application;
+
+import Airline.Client;
+import Airline.Flight;
+import Frames.ClientManagerFrame;
+
 import java.util.LinkedList;
 
 /**
  * @author Guillaume Vetter & Luca Reis de Carvalho
- * Main class that just create clients and flights and add them to a Client manager frame.
+ * Main class that just create clients and flights and add them to a Airline.Client manager frame.
  */
 public class Application {
 

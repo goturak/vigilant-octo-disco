@@ -1,5 +1,13 @@
+package Frames;
+
+import Airline.Client;
+import CustomObserver.Observable;
+import CustomObserver.Observer;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * @author Guillaume Vetter & Luca Reis de Carvalho
@@ -39,7 +47,7 @@ public class ClientDetailsFrame extends Frame implements Observer {
         this.firstName = new JLabel("First name: " + client.getFirstName());
         this.credits = new JLabel("Credits: " + client.getMoney());
         this.nbMiles = new JLabel("Nb miles: " + client.getMiles());
-        this.status = new JLabel("Status: "+ client.getStatus());
+        this.status = new JLabel("State.Status: "+ client.getStatus());
         this.lastAction = new JLabel("Last action: " + client.getLastAction());
 
         this.client = client;
@@ -59,6 +67,14 @@ public class ClientDetailsFrame extends Frame implements Observer {
         panel.add(status);
         panel.add(lastAction);
 
+        WindowAdapter closeListener = new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent windowEvent) {
+                client.removeObserver(ClientDetailsFrame.this);
+            }
+        };
+        getFrame().addWindowListener(closeListener);
+
         getFrame().setContentPane(panel);
         getFrame().setTitle("Details of client #" + client.getID());
         getFrame().setBounds(bound);
@@ -75,7 +91,7 @@ public class ClientDetailsFrame extends Frame implements Observer {
     public void update(Observable observable) {
         credits.setText("Credits: " + client.getMoney());
         nbMiles.setText("Nb miles: " + client.getMiles());
-        status.setText("Status: " + client.getStatus());
+        status.setText("State.Status: " + client.getStatus());
         lastAction.setText("Last action: " + client.getLastAction());
     }
 }

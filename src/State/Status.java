@@ -1,3 +1,9 @@
+package State;
+
+
+import Airline.Client;
+import Airline.Ticket;
+
 import java.awt.*;
 
 /**
@@ -33,7 +39,7 @@ public abstract class Status {
      * Method used to add money to the account
      * @param amount the amount we want to add to the account.
      */
-    void addMoney(int amount){
+    public void addMoney(int amount){
         money+=amount;
         statusChangeCheck();
     }
@@ -72,7 +78,7 @@ public abstract class Status {
     /**
      * Abstract method that is called when we want to check for a status change.
      */
-    abstract void statusChangeCheck();
+    public abstract void statusChangeCheck();
 
     /**
      * Getter of the miles
@@ -94,5 +100,5 @@ public abstract class Status {
      * Getter of the color of the status
      * @return the color of the displayed status.
      */
-    abstract Color getColor();
+    public abstract Color getColor();
 }
