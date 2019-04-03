@@ -1,3 +1,5 @@
+package CustomObserver;
+
 /**
  * @author Guillaume Vetter & Luca Reis de Carvalho
  * Interface used to represent that every observers has to implement an update method that is called when

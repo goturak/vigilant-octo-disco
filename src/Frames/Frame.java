@@ -1,4 +1,4 @@
-/**
+package Frames; /**
  * @author Guillaume Vetter & Luca Reis de Carvalho
  * Class representing a frame.
  */

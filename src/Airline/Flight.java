@@ -1,3 +1,5 @@
+package Airline;
+
 /**
  * @author Guillaume Vetter & Luca Reis de Carvalho
  * Class representing a flight.

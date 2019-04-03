@@ -1,3 +1,10 @@
+package Frames;
+
+import Airline.Client;
+import Airline.Flight;
+import Airline.Ticket;
+import Airline.TicketType;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
