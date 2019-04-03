@@ -46,7 +46,7 @@ public class Client extends Observable implements Comparable{
         idGenerator++;
 
 
-        status =new SilverStatus(this);
+        status =new Silver(this);
         this.lastAction = "";
     }
     public void setStatus(Status newStatus){
