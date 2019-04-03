@@ -1,13 +1,13 @@
 import java.awt.*;
 
-public class SilverStatus extends Status {
-    SilverStatus(Client client){
+public class Silver extends Status {
+    Silver(Client client){
         super(client);
         milesRatio=0.1f;
         money=0;
         miles=0;
     }
-    SilverStatus(Status oldStatus){
+    Silver(Status oldStatus){
         super(oldStatus);
         milesRatio=0.1f;
     }
@@ -17,7 +17,7 @@ public class SilverStatus extends Status {
     @Override
     void statusChangeCheck() {
         if(miles>=1000){
-            client.setStatus(new GoldStatus(this));
+            client.setStatus(new Gold(this));
         }
     }
 

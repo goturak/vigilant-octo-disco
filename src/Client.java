@@ -77,8 +77,7 @@ public class Client extends Observable implements Comparable{
         firstName = fn;
         this.id = idGenerator;
         idGenerator++;
-
-        status =new SilverStatus(this);
+        status =new Silver(this);
         this.lastAction = "";
     }
 

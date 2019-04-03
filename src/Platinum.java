@@ -1,9 +1,9 @@
 import java.awt.*;
 
-public class PlatinumStatus extends Status {
+public class Platinum extends Status {
 
     boolean locked;
-    PlatinumStatus(Status oldStatus){
+    Platinum(Status oldStatus){
         super(oldStatus);
         locked=false;
         statusChangeCheck();
@@ -15,7 +15,7 @@ public class PlatinumStatus extends Status {
     @Override
     void statusChangeCheck() {
         if(miles<10000&& !locked){
-            client.setStatus(new GoldStatus(this));
+            client.setStatus(new Gold(this));
         }
 
         if(money>=100000){
