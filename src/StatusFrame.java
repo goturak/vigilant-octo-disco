@@ -4,11 +4,19 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 
+/**
+ * @author Guillaume Vetter & Luca Reis de Carvalho
+ * Class representing a status frame that implements observer.
+ */
 public class StatusFrame extends Frame implements Observer {
     JPanel panel;
     LinkedList<Client> clients;
     HashMap<Integer, JLabel>  labels = new HashMap<>();
 
+    /**
+     * Constructor of the status frame, taking the list of every clients.
+     * @param clients all the clients in the system, that will be sorted afterwards.
+     */
     public StatusFrame(LinkedList<Client> clients){
         super();
         panel =  new JPanel();
@@ -27,6 +35,9 @@ public class StatusFrame extends Frame implements Observer {
         getFrame().setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
+    /**
+     * Private method used to create a JLabel for every client.
+     */
     private void createLabels(){
         int pos = 10;
         for(Client client : clients){
@@ -39,6 +50,10 @@ public class StatusFrame extends Frame implements Observer {
         }
     }
 
+    /**
+     * Override of the observer method
+     * @param observable the observable that may have changed.
+     */
     @Override
     public void update(Observable observable) {
         Client c = (Client)observable;
@@ -46,6 +61,11 @@ public class StatusFrame extends Frame implements Observer {
         selectColor(l, c);
     }
 
+    /**
+     * Private method used to select the correct display color.
+     * @param label the JLabel that may be subject to a color change.
+     * @param client the client that has been subject to change.
+     */
     private void selectColor(JLabel label, Client client){
                 label.setForeground(client.getStatus().getColor());
     }
