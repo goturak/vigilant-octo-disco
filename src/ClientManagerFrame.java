@@ -3,13 +3,20 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.LinkedList;
 
+/**
+ * Class used to represent a client manager frame, the main window of the program.
+ * @author Guillaume Vetter & Luca Reis de Carvalho
+ */
 public class ClientManagerFrame extends Frame {
+    /**
+     * Arguments of the frame, the clients and the flights, the current client, flight and ticket that we display and
+     * the combo box that may need update.
+     */
     private LinkedList<Client> clients;
     private LinkedList<Flight> flights;
     private Client currentClient;
     private Flight currentFlight;
     private Ticket currentTicket;
-    private JPanel panel;
     private JComboBox cbTicket;
 
     public ClientManagerFrame(LinkedList<Client> clients, LinkedList<Flight> flights){
@@ -18,7 +25,7 @@ public class ClientManagerFrame extends Frame {
         this.flights = flights;
         this.currentClient = clients.get(0);
         this.currentFlight = flights.get(0);
-        this.panel = new JPanel();
+        JPanel panel = new JPanel();
         JPanel firstElements = new JPanel();
         JPanel secondElements = new JPanel();
         JPanel thirdElements = new JPanel();
@@ -164,8 +171,10 @@ public class ClientManagerFrame extends Frame {
          */
         JButton quit = new JButton("Quit");
         ActionListener quitListener = e -> {
+            for(Client client : clients){
+                client.removeAllObservers();
+            }
             getFrame().dispose();
-            System.exit(0);
         };
         quit.addActionListener(quitListener);
         quit.setBounds(240,160, 100, 40);
@@ -189,6 +198,9 @@ public class ClientManagerFrame extends Frame {
 
     }
 
+    /**
+     * Method used to update the combo box showing the tickets dependent of the current flight.
+     */
     private void updateCurrentTickets(){
         cbTicket.removeAllItems();
         currentTicket = new Ticket(currentFlight, TicketType.ECONOMY);
